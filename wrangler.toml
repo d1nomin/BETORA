@@ -1,0 +1,8 @@
+name = "betora"
+compatibility_date = "2026-10-29"
+pages_build_output_dir = "."
+# Создайте D1 и укажите её database_id после создания.
+[[d1_databases]]
+binding = "DB"
+database_name = "betora-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0b"><title>BETORA — вход</title>
+<link rel="icon" href="/assets/logo.png"><link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="auth-page">
+<main class="auth-card">
+  <img class="brand-logo" src="/assets/logo.png" alt="Корона BETORA">
+  <div class="brand-name">BETORA</div><p class="muted center">Премиальная игровая арена</p>
+  <div class="auth-tabs"><button class="tab active" data-auth-tab="login">Вход</button><button class="tab" data-auth-tab="register">Регистрация</button></div>
+  <form id="login-form" class="form-stack">
+    <label>Логин<input name="login" autocomplete="username" minlength="3" required maxlength="32" placeholder="Ваш логин"></label>
+    <label>Пароль<div class="password-wrap"><input name="password" type="password" autocomplete="current-password" required placeholder="Ваш пароль"><button class="eye" type="button" aria-label="Показать пароль"><i class="fa-regular fa-eye"></i></button></div></label>
+    <button class="gold-button" type="submit">Войти <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+  </form>
+  <form id="register-form" class="form-stack hidden">
+    <label>Ваш ник в Minecraft<input name="mc_nick" required minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" placeholder="Steve_123"></label>
+    <label>Придумайте логин<input name="login" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_.-]{3,32}" autocomplete="username" placeholder="От 3 символов"></label>
+    <label>Придумайте пароль<div class="password-wrap"><input name="password" type="password" required minlength="6" autocomplete="new-password" placeholder="Минимум 6 символов"><button class="eye" type="button" aria-label="Показать пароль"><i class="fa-regular fa-eye"></i></button></div></label>
+    <button class="gold-button" type="submit">Создать аккаунт <i class="fa-solid fa-user-plus"></i></button>
+  </form>
+  <p class="auth-switch muted" id="auth-switch">Нет аккаунта? <button type="button" data-auth-tab="register">Зарегистрируйся</button></p>
+  <p class="tiny muted center">Игровая валюта АР. Ставки не настоящие.</p>
+</main>
+<div id="toast-root" class="toast-root"></div>
+<script src="/assets/js/common.js"></script><script src="/assets/js/auth.js"></script>
+</body></html>
