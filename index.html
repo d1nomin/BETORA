@@ -9,7 +9,7 @@
 <body class="auth-page">
 <main class="auth-card">
   <img class="brand-logo" src="/assets/logo.png" alt="Корона BETORA">
-  <div class="brand-name">BETORA</div><p class="muted center">Премиальная игровая арена</p>
+  <div class="brand-name">BETORA</div><p class="muted center">Турнир прогнозов по CS 2 и Dota 2</p>
   <div class="auth-tabs"><button class="tab active" data-auth-tab="login">Вход</button><button class="tab" data-auth-tab="register">Регистрация</button></div>
   <form id="login-form" class="form-stack">
     <label>Логин<input name="login" autocomplete="username" minlength="3" required maxlength="32" placeholder="Ваш логин"></label>
@@ -21,10 +21,12 @@
     <label>Придумайте логин<input name="login" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_.-]{3,32}" autocomplete="username" placeholder="От 3 символов"></label>
     <label>Придумайте пароль<div class="password-wrap"><input name="password" type="password" required minlength="6" autocomplete="new-password" placeholder="Минимум 6 символов"><button class="eye" type="button" aria-label="Показать пароль"><i class="fa-regular fa-eye"></i></button></div></label>
     <button class="gold-button" type="submit">Создать аккаунт <i class="fa-solid fa-user-plus"></i></button>
+    <p class="tiny muted center">После регистрации вы получите 1000 стартовых баллов бесплатно.</p>
   </form>
   <p class="auth-switch muted" id="auth-switch">Нет аккаунта? <button type="button" data-auth-tab="register">Зарегистрируйся</button></p>
-  <p class="tiny muted center">Игровая валюта АР. Ставки не настоящие.</p>
+  <p class="tiny muted center">Бесплатная игра. Баллы не имеют реальной ценности, их нельзя купить или вывести.</p>
 </main>
 <div id="toast-root" class="toast-root"></div>
 <script src="/assets/js/common.js"></script><script src="/assets/js/auth.js"></script>
-</body></html>
+</body>
+</html>
