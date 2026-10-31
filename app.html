@@ -1,16 +1,43 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0b"><title>BETORA — игровая арена</title><link rel="icon" href="/assets/logo.png"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></head>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0b"><title>BETORA — турнир прогнозов</title><link rel="icon" href="/assets/logo.png"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></head>
 <body><div class="app-shell">
-<header class="topbar"><a class="brand compact" href="/app.html"><img src="/assets/logo.png" alt="BETORA"><span>BETORA</span></a><div class="user-tools"><button id="balance-open" class="balance-chip"><span id="nick">Загрузка…</span><strong>Баланс: <b id="balance">—</b> АР</strong></button><button id="withdraw-open" class="outline-button"><i class="fa-solid fa-arrow-up-from-bracket"></i> Вывод</button><button id="logout" class="icon-button" title="Выйти"><i class="fa-solid fa-right-from-bracket"></i></button></div></header>
-<nav class="main-tabs"><button class="active" data-view="football"><i class="fa-solid fa-futbol"></i> Футбол</button><button data-view="esports"><i class="fa-solid fa-gamepad"></i> Киберспорт</button><button data-view="bets"><i class="fa-solid fa-ticket"></i> Мои ставки</button><button data-view="transactions"><i class="fa-solid fa-clock-rotate-left"></i> История операций</button></nav>
+<header class="topbar"><a class="brand compact" href="/app.html"><img src="/assets/logo.png" alt="BETORA"><span>BETORA</span></a><div class="user-tools"><button id="profile-open" class="balance-chip" title="Открыть профиль"><span id="nick">Загрузка…</span><strong>Баллы: <b id="balance">—</b></strong></button><button id="bonus-open" class="outline-button"><i class="fa-solid fa-gift"></i> Бонус</button><button id="logout" class="icon-button" title="Выйти"><i class="fa-solid fa-right-from-bracket"></i></button></div></header>
+<nav class="main-tabs"><button class="active" data-view="esports"><i class="fa-solid fa-gamepad"></i> Матчи</button><button data-view="daily"><i class="fa-solid fa-crown"></i> Купон дня</button><button data-view="bets"><i class="fa-solid fa-ticket"></i> Мои прогнозы</button><button data-view="leaderboard"><i class="fa-solid fa-ranking-star"></i> Рейтинг</button><button data-view="profile"><i class="fa-solid fa-user"></i> Профиль</button></nav>
 <main class="content">
-<section id="view-football" class="view"><div class="section-heading"><div><p class="eyebrow">ЛИНИЯ СОБЫТИЙ</p><h1>Футбол</h1></div><span class="live-pill"><i></i> Игровая линия</span></div><div id="football-list" class="match-grid"><div class="skeleton-card"></div><div class="skeleton-card"></div></div></section>
-<section id="view-esports" class="view hidden"><div class="section-heading"><div><p class="eyebrow">СОРЕВНОВАНИЯ</p><h1>Киберспорт</h1></div></div><div class="subtabs"><button class="active" data-esport="cs2">CS 2</button><button data-esport="dota2">Dota 2</button></div><div id="esports-list" class="match-grid"></div></section>
-<section id="view-bets" class="view hidden"><div class="section-heading"><div><p class="eyebrow">ВАША АКТИВНОСТЬ</p><h1>Мои ставки</h1></div></div><div id="my-bets" class="table-wrap"><div class="skeleton-card"></div></div></section>
-<section id="view-transactions" class="view hidden"><div class="section-heading"><div><p class="eyebrow">ФИНАНСОВАЯ АКТИВНОСТЬ</p><h1>История операций</h1></div></div><div id="my-transactions" class="table-wrap"></div></section>
+
+<section id="view-esports" class="view"><div class="section-heading"><div><p class="eyebrow">СОРЕВНОВАНИЯ</p><h1>Матчи</h1></div><span class="live-pill"><i></i> Примерные коэффициенты</span></div><div class="subtabs"><button class="active" data-esport="cs2">CS 2</button><button data-esport="dota2">Dota 2</button></div><div id="esports-list" class="match-grid"><div class="skeleton-card"></div><div class="skeleton-card"></div></div></section>
+
+<section id="view-daily" class="view hidden"><div class="section-heading"><div><p class="eyebrow">ВЫБОР АДМИНИСТРАЦИИ</p><h1>Купон дня</h1></div></div><div id="daily-coupon" class="match-grid"><div class="skeleton-card"></div></div><p class="tiny muted">Нажмите «Повторить купон», чтобы перенести все прогнозы в ваш купон.</p></section>
+
+<section id="view-bets" class="view hidden"><div class="section-heading"><div><p class="eyebrow">ВАША АКТИВНОСТЬ</p><h1>Мои прогнозы</h1></div></div><div id="my-bets" class="table-wrap"><div class="skeleton-card"></div></div></section>
+
+<section id="view-leaderboard" class="view hidden"><div class="section-heading"><div><p class="eyebrow">НЕДЕЛЬНЫЙ ТУРНИР</p><h1>Рейтинг игроков</h1></div><select id="leaderboard-period"><option value="week">Эта неделя</option><option value="all">Всё время</option></select></div><div id="leaderboard-table" class="table-wrap"><div class="skeleton-card"></div></div><p class="tiny muted">Победители недели могут получить приз от администрации сервера.</p></section>
+
+<section id="view-profile" class="view hidden"><div class="section-heading"><div><p class="eyebrow">ВАШ АККАУНТ</p><h1 id="profile-title">Профиль</h1></div></div>
+<div id="profile-stats" class="match-grid">
+  <div class="match-card"><p class="tiny muted">Баллы</p><h2><b id="stat-points">0</b></h2></div>
+  <div class="match-card"><p class="tiny muted">Место в рейтинге</p><h2><b id="stat-rank">—</b></h2></div>
+  <div class="match-card"><p class="tiny muted">Всего прогнозов</p><h2><b id="stat-total">0</b></h2></div>
+  <div class="match-card"><p class="tiny muted">Угадано</p><h2><b id="stat-winrate">0%</b></h2></div>
+</div>
+<div class="section-heading"><div><h2>Мои купоны</h2></div><button id="profile-new-coupon" class="gold-button"><i class="fa-solid fa-plus"></i> Собрать купон</button></div>
+<div id="profile-coupons" class="table-wrap"></div>
+<div class="section-heading"><div><h2>История баллов</h2></div></div>
+<div id="my-transactions" class="table-wrap"></div>
+</section>
+
 </main>
-<footer class="site-footer">Игровая валюта АР. Ставки не настоящие. Проект для Minecraft.</footer></div>
-<div id="coupon-backdrop" class="coupon-backdrop"></div><aside id="coupon" class="coupon"><div class="coupon-head"><div><p class="eyebrow">ВАШ ВЫБОР</p><h2>Купон ставок</h2></div><button id="coupon-close" class="icon-button" aria-label="Закрыть"><i class="fa-solid fa-xmark"></i></button></div><div id="coupon-items" class="coupon-items"><div class="empty-state">Выберите коэффициент в линии</div></div><label class="stake-label">Сумма ставки (АР)<input id="stake-amount" type="number" min="1" step="1" placeholder="Например, 100"></label><div class="payout-row"><span>Возможный выигрыш</span><strong><b id="possible-payout">0</b> АР</strong></div><button id="place-bet" class="gold-button full">Поставить <i class="fa-solid fa-arrow-right"></i></button><p class="tiny muted">Коэффициент и баланс проверяются сервером.</p></aside>
-<div id="balance-modal" class="modal"><div class="modal-card"><button class="modal-close" data-close="balance-modal"><i class="fa-solid fa-xmark"></i></button><h2>Пополнение баланса</h2><p>Отправьте АР игроку с ником <strong class="gold-text">D1nomin</strong> и в течение 24 часов АРы придут к вам на баланс.</p><button class="gold-button full" data-close="balance-modal">Понятно</button></div></div>
-<div id="withdraw-modal" class="modal"><div class="modal-card"><button class="modal-close" data-close="withdraw-modal"><i class="fa-solid fa-xmark"></i></button><p class="eyebrow">ВЫВОД СРЕДСТВ</p><h2>Вывод АР</h2><p class="modal-balance">Баланс: <strong><b id="withdraw-balance">0</b> АР</strong></p><label>Сумма вывода<input id="withdraw-amount" type="number" min="1" step="1" placeholder="Введите сумму"></label><div class="button-row"><button id="withdraw-all" class="outline-button">Вывести всё</button><button id="withdraw-submit" class="gold-button">Вывести</button></div><p class="tiny muted">Заявка будет отправлена администрации.</p></div></div>
+<footer class="site-footer">Бесплатная игра-прогнозист. Баллы не имеют реальной ценности, их нельзя купить или вывести.</footer></div>
+
+<div id="coupon-backdrop" class="coupon-backdrop"></div>
+<aside id="coupon" class="coupon"><div class="coupon-head"><div><p class="eyebrow">ВАШ ВЫБОР</p><h2>Купон прогнозов</h2></div><button id="coupon-close" class="icon-button" aria-label="Закрыть"><i class="fa-solid fa-xmark"></i></button></div>
+<div id="coupon-items" class="coupon-items"><div class="empty-state">Выберите коэффициент в линии</div></div>
+<label class="stake-label">Баллы на купон<input id="stake-amount" type="number" min="1" step="1" placeholder="Например, 100"></label>
+<div class="payout-row"><span>Общий коэффициент</span><strong><b id="total-odds">0.00</b></strong></div>
+<div class="payout-row"><span>Возможный выигрыш</span><strong><b id="possible-payout">0</b> баллов</strong></div>
+<button id="place-bet" class="gold-button full">Сохранить купон <i class="fa-solid fa-arrow-right"></i></button>
+<p class="tiny muted">Коэффициенты и баллы проверяются сервером.</p></aside>
+
+<div id="bonus-modal" class="modal"><div class="modal-card"><button class="modal-close" data-close="bonus-modal"><i class="fa-solid fa-xmark"></i></button><p class="eyebrow">РАЗ В 24 ЧАСА</p><h2>Ежедневный бонус</h2><p>Заберите бесплатные баллы. Они существуют только на сайте: их нельзя купить, продать или вывести.</p><p id="bonus-status" class="tiny muted"></p><button id="bonus-claim" class="gold-button full">Забрать бонус</button></div></div>
+
 <div id="toast-root" class="toast-root"></div><script src="/assets/js/common.js"></script><script src="/assets/js/app.js"></script></body></html>
